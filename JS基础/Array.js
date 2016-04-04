@@ -23,7 +23,27 @@
  * push() 将新元素添加到一个数组中，并返回数组的新长度值
  * shift()移除数组中的第一个元素并返回该元素
  * unshift()将指定的元素插入数组开始位置并返回该数组
- * 
+ *
+ *
+ * copyWithin()
+ * entries()
+ * every()
+ * fill()
+ * filter()
+ * find()
+ * findIndex();
+ * forEach()
+ * includes()
+ * indexOf()
+ * keys()
+ * lastIndexOf()
+ * map()
+ * reduce()
+ * reduceRight()
+ * reverse()
+ * some()
+ * toLocaleString()
+ * toString()
  */
 
 //--------------------------------------------------------
