@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css绘制电源信息</title>
+	<link rel="stylesheet" type="text/css" href="./css/reset.css">
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	.wrapper {
+		width:600px;
+		margin: 0 auto;
+	}
+	.progress-box {
+		width:414px;
+		height:20px;
+		border: 1px solid #000;
+		margin-top:100px;
+		border-radius: 15px;
+		text-align: center;
+		font-size: 11px;
+		line-height: 22px;
+		overflow: hidden;
+		position: relative;
+	}
+	.progress-bar {
+		border-radius: 15px;
+		background: green;
+		width:10%;
+		height:100%;
+		transition: width 1s;
+	}
+	.progress-num {
+		position: absolute;
+		top: -1px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="progress-box">
+			<div class="progress-bar"></div>
+			<span class="progress-num">10%</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		navigator.getBattery().then(function(battery) {
+			var level = battery.level * 100 + "%";
+		  	console.log("🔋 正在充电? " + (battery.charging ? "Yes" : "No"));
+		  	console.log("🔋 剩余电量: " + battery.level * 100 + "%");
+		  	console.log("Battery charging time: " + battery.chargingTime + " seconds");
+		  	console.log("Battery discharging time: " + battery.dischargingTime + " seconds");
+		  	document.getElementsByClassName('progress-bar')[0].style['width'] = level;
+		  	document.getElementsByClassName('progress-num')[0].innerHTML = level;
+		  	//监听电源充电事件
+		  	battery.addEventListener('chargingchange', function() {
+		    	console.log("🔋 正在充电? " + (battery.charging ? "Yes" : "No"));
+		  	});
+		  	//监听电源等级事件
+		  	battery.addEventListener('levelchange', function() {
+		  		var level = battery.level * 100 + "%";
+		    	console.log("🔋 剩余电量: " + level);
+		    	document.getElementsByClassName('progress-bar')[0].style['width'] = level;
+		  	});
+		  	//监听电源充电时间事件
+		  	battery.addEventListener('chargingtimechange', function() {
+		    	console.log("🔋 Battery charging time: " + battery.chargingTime + " seconds");
+
+		  	});
+		  	//监听电源放点时间事件
+		  	battery.addEventListener('dischargingtimechange', function() {
+		    	console.log("🔋 Battery discharging time: " + battery.dischargingTime + " seconds");
+		  	});
+
+		});
+	</script>
+</body>
+</html>
