@@ -10,6 +10,7 @@ li {
 fieldset, img {
     border: 0;
 }
+
 input, button, textarea, select, optgroup, option {
     font: inherit;
 }
@@ -61,7 +62,7 @@ a:active, a:hover, a:focus {
     outline: 0;
 }
 /*reset end*/
- 
+
 /*common css
 ------------------------------*/
  *, :after, :before {
@@ -149,5 +150,5 @@ a:active, a:hover, a:focus {
     text-decoration: none;
 }
 /*common css end*/
- 
+
 /*-----------------------------*/
