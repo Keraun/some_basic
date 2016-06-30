@@ -1,5 +1,4 @@
-【
-4】 请写出一个方法， 用于获取以下url中的参数值
+//请写出一个方法， 用于获取以下url中的参数值
 var url = 'http://xxx.com?a=1&b=2';
 //参考答案
 function parseParam(url) {
