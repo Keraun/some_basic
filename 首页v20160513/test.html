@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <select id="select">
-            <option value="1" >1</option>
-            <option value="2">2</option>
-            <option value="3" selected>3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <script src="http://libs.useso.com/js/jquery/1.7/jquery.min.js"></script>
-        <script>
-        $('#select').find('option[value="5"]')[0].selected = "selected";
-        </script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="test1" draggable="true" style="width:50px;height:50px;background:blue;"></div>
+    <div id="test2" style="width:100px;height:100px;background:red;"></div>
+    <script src="http://libs.useso.com/js/jquery/1.7/jquery.min.js"></script>
+    <script>
+    $('#test1').on('dragstart', function(event) {
+        console.log('1dragstart');
+    });
+    $('#test1').on('dragenter', function(event) {
+        console.log('1dragenter');
+    });
+    $('#test1').on('dragover', function(event) {
+        event.preventDefault();
+       console.log('1dragover');
+    });
+    $('#test1').on('dragleave', function(event) {
+        console.log('1dragleave');
+    });
+    $('#test1').on('dragend', function(event) {
+        console.log('1dragend');
+    });
+    $('#test1').on('drop', function(event) {
+        console.log('1drop');
+    });
+    $('#test2').on('dragstart', function(event) {
+        console.log('2dragstart');
+    });
+    $('#test2').on('dragenter', function(event) {
+        console.log('2dragenter');
+    });
+    $('#test2').on('dragover', function(event) {
+        event.preventDefault();
+       console.log('2dragover');
+    });
+    $('#test2').on('dragleave', function(event) {
+        console.log('2dragleave');
+    });
+    $('#test2').on('dragend', function(event) {
+        console.log('2dragend');
+    });
+    $('#test2').on('drop', function(event) {
+        console.log('2drop');
+    });
+    </script>
+</body>
+
 </html>
